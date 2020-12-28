@@ -26,7 +26,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="{{ page.date | date:'%e %B %Y' }}">{{ page.date | date:'%e %B %Y' }}</time>
+                    <time class="post-full-meta-date" datetime="{{ page.date | date:'%e-%m-%Y' }}">{{ page.date | date:'%e-%m-%Y' }}</time>
                     {% if page.tags.size > 0 %}
                         <span class="date-divider">/</span>
                         {% for tag in page.tags %}
@@ -42,15 +42,18 @@ into the {body} of the default.hbs template -->
             </header>
 
             {% if page.cover %}
-            <figure class="post-full-image" style="background-image: url({{ site.baseurl }}{{ page.cover }})">
+         <figure  class="post-full-image">
+             <a  href="{{ site.baseurl }}{{ page.cover }}" title="Open picture in this window">
+                 <img src="{{ site.baseurl }}{{ page.cover }}" alt="Image 1" />
+             </a>
             </figure>
             {% endif %}
 
-            <section class="post-full-content">
+        <!--    <section class="post-full-content">
                 <div class="kg-card-markdown">
                     {{ content }}
                 </div>
-            </section>
+            </section> -->
 
             <!-- Email subscribe form at the bottom of the page -->
             {% if site.subscribers %}
